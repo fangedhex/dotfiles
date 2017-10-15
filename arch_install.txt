@@ -1,0 +1,9 @@
+ttf-roboto-mono
+ttf-font-awesome
+i3-gaps
+feh
+rofi
+polybar
+fish
+fisherman
+compton

@@ -1,0 +1,74 @@
+!! Defining colors
+
+#define primary         #1e1f28
+#define secondary       #ebece6
+
+#define dark_black      #000000
+#define light_black     #555555
+
+#define dark_white      #ededec
+#define light_white     #ededec
+
+#define dark_yellow     #f0fa8b
+#define light_yellow    #f0fa8b
+
+#define dark_red        #fb4245
+#define light_red       #fb4245
+
+#define dark_magenta    #fb4cb3
+#define light_magenta   #fb4cb3
+
+#define dark_blue       #49b9fe
+#define light_blue      #49b9fe
+
+#define dark_cyan       #8be9fd
+#define light_cyan      #8be9fd
+
+#define dark_green      #50fa7b
+#define light_green     #50fa7b
+
+!! Terminal color
+*background:            primary
+*foreground:            secondary
+
+!! Window
+*active:                yellow
+*inactive:              gray_dark
+
+!! black dark/light
+*color0:                dark_black
+*color8:                light_black
+
+!! red dark/light
+*color1:                dark_red
+*color9:                light_red
+
+!! green dark/light
+*color2:                dark_green
+*color10:               light_green
+
+!! yellow dark/light
+*color3:                dark_yellow
+*color11:               light_yellow
+
+!! blue dark/light
+*color4:                dark_blue
+*color12:               light_blue
+
+!! magenta dark/light
+*color5:                light_magenta
+*color13:               dark_magenta
+
+!! cyan dark/light
+*color6:                light_cyan
+*color14:               dark_cyan
+
+!! white dark/light
+*color7:                dark_white
+*color15:               light_white
+
+! URxvt config
+URxvt*font: xft:RobotoMono-Regular:size=10
+URxvt*scrollBar: false
+URxvt*cursorBlink: true
+URxvt.internalBorder: 5
