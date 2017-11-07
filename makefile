@@ -1,4 +1,9 @@
-all: copy_config
+# Default to an HELP/Menu command
+all: 
+	echo "--- Makefile Menu ---"
+	echo -e "$$(grep -hE '^\S+:.*##' $(MAKEFILE_LIST) | sed -e 's/:.*##\s*/:/' -e 's/^\(.\+\):\(.*\)/\\x1b[36m\1\\x1b[m:\2/' | column -c2 -t -s :)"
+
+install_deps: t## Install dependencies program that the makefile use
 
 install:
 	xargs -d '\n' -a arch_install.txt yaourt --noconfirm -S
@@ -27,4 +32,8 @@ config_fish:
 
 copy_bg_feh:
 	cp -r feh ~/.config/
+
+ifndef VERBOSE
+.SILENT:
+endif
 	
