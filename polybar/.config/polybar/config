@@ -99,42 +99,46 @@ label-unmounted-foreground = ${colors.foreground-alt}
 
 [module/i3]
 type = internal/i3
-format = <label-state> <label-mode>
 index-sort = true
-wrapping-scroll = false
+enable-click = true
+enable-scroll = false
+warping-scroll = false
+reverse-scroll = false
+fuzzy-match = true
+format = <label-mode><label-state>
 
 ; Only show workspaces on the same output as the bar
 ;pin-workspaces = true
 
 label-mode-padding = 2
-label-mode-foreground = #000
-label-mode-background = 
+;label-mode-foreground = #000
+;label-mode-background = 
 
 ; focused = Active workspace on focused monitor
-label-focused = %icon%
+label-focused = %index% %icon%
 label-focused-background = #88000000
 label-focused-underline = #ddd
 ;label-focused-underline = ${module/bspwm.label-focused-underline}
 label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = %icon%
+label-unfocused = ${self.label-focused}
 label-unfocused-padding = ${self.label-focused-padding}
 
 ; visible = Active workspace on unfocused monitor
-label-visible = %icon%
+label-visible = ${self.label-focused}
 label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
-label-urgent = %icon%
+label-urgent = ${self.label-focused}
 label-urgent-background =
 label-urgent-padding = ${self.label-focused-padding}
 
-ws-icon-0 = "1;"
-ws-icon-1 = "2;"
-ws-icon-2 = "3;"
+ws-icon-0 = "code;"
+ws-icon-1 = "term;"
+ws-icon-2 = "web;"
 ws-icon-default = ""
 
 [module/mpd]

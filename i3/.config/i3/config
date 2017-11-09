@@ -122,14 +122,14 @@ bindsym $mod+q focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-set $wsCode = "1"
-set $wsTerm = "2"
-set $wsWeb = "3"
+set $ws1 "1:code"
+set $ws2 "2:term"
+set $ws3 "3:web"
 
 # switch to workspace
-bindsym $mod+ampersand workspace $wsCode
-bindsym $mod+eacute workspace $wsTerm
-bindsym $mod+quotedbl workspace $wsWeb
+bindsym $mod+ampersand workspace $ws1
+bindsym $mod+eacute workspace $ws2
+bindsym $mod+quotedbl workspace $ws3
 bindsym $mod+apostrophe workspace 4
 bindsym $mod+parenleft workspace 5
 bindsym $mod+minus workspace 6
@@ -139,9 +139,9 @@ bindsym $mod+ccedilla workspace 9
 bindsym $mod+agrave workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $wsCode
-bindsym $mod+Shift+eacute move container to workspace $wsTerm
-bindsym $mod+Shift+3 move container to workspace $wsWeb
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+eacute move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
 bindsym $mod+Shift+4 move container to workspace 4
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
@@ -197,8 +197,8 @@ exec --no-startup-id compton
 exec --no-startup-id feh --bg-scale ~/.config/feh/bg.png
 
 # Assigning Window
-assign [class="Code"] $wsCode
-assign [class="URxvt"] $wsTerm
-assign [class="firefox-developer"] $wsWeb
+assign [class="Code"] $ws1
+assign [class="URxvt"] $ws2
+assign [class="Firefox"] $ws3
 
 gaps inner 1
