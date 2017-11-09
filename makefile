@@ -1,6 +1,6 @@
 # Function for installing arch linux packages
 define install
-	xargs -d '\n' -a pkg/$1.txt yaourt --noconfirm -S
+	xargs -d '\n' -a pkg/$1.txt yaourt --noconfirm --needed -S
 endef
 
 # Function to "copy" (symlink) to the $HOME directory
@@ -17,43 +17,21 @@ deps: ## Install dependencies program that the makefile use
 	${call install,deps}
 
 i3: deps icons_theme cursor_theme ## Install & configure i3wm
-	echo "Nothing here :("
+	${call install,i3}
+	${call copy,xres}
+	xrdb ~/.Xresources
+	${call copy,i3}
+	${call copy,compton}
+	${call copy,polybar}
+	chmod +x ~/.config/polybar/launch.sh
+	${call copy,feh}
 
 icons_theme: ## Install the icons theme
 	${call install,icons_theme}
 
 cursor_theme: ## Install the cursor theme
-	${call install,cursor_theme}
+	${call install,cursor_theme}	
 
-install:
-	xargs -d '\n' -a arch_install.txt yaourt --noconfirm -S
-
-change_shell:
-	chsh -s /usr/bin/fish
-
-copy_config: config_xres config_i3 config_compton config_polybar config_fish
-
-config_xres:
-	cp Xresources ~/.Xresources
-	xrdb ~/.Xresources
-
-config_i3: config_xres config_compton config_polybar copy_bg_feh
-	cp -r i3 ~/.config/
-
-config_compton:
-	cp compton/config ~/.config/compton.conf
-
-config_polybar:
-	cp -r polybar ~/.config/
-	chmod +x ~/.config/polybar/launch.sh
-
-config_fish:
-	fish -c "fisher install omf/theme-cmorrell.com"	
-
-copy_bg_feh:
-	cp -r feh ~/.config/
-
-ifndef VERBOSE
-	.SILENT:
-endif
+# Silent commands
+.SILENT:
 	

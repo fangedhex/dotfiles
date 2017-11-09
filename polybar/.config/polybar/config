@@ -132,9 +132,9 @@ label-urgent = %icon%
 label-urgent-background =
 label-urgent-padding = ${self.label-focused-padding}
 
-ws-icon-0 = "code;"
-ws-icon-1 = "term;"
-ws-icon-2 = "web;"
+ws-icon-0 = "1;"
+ws-icon-1 = "2;"
+ws-icon-2 = "3;"
 ws-icon-default = ""
 
 [module/mpd]

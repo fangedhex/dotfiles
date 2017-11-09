@@ -122,9 +122,9 @@ bindsym $mod+q focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-set $wsCode = "code"
-set $wsTerm = "term"
-set $wsWeb = "web"
+set $wsCode = "1"
+set $wsTerm = "2"
+set $wsWeb = "3"
 
 # switch to workspace
 bindsym $mod+ampersand workspace $wsCode
