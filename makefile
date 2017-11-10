@@ -13,6 +13,8 @@ all:
 	echo "--- Makefile Menu ---"
 	echo -e "$$(grep -hE '^\S+:.*##' $(MAKEFILE_LIST) | sed -e 's/:.*##\s*/:/' -e 's/^\(.\+\):\(.*\)/\\x1b[36m\1\\x1b[m:\2/' | column -c2 -t -s :)"
 
+.PHONY: deps i3 icons_theme cursor_theme zsh
+
 deps: ## Install dependencies program that the makefile use
 	${call install,deps}
 
@@ -30,7 +32,12 @@ icons_theme: ## Install the icons theme
 	${call install,icons_theme}
 
 cursor_theme: ## Install the cursor theme
-	${call install,cursor_theme}	
+	${call install,cursor_theme}
+
+zsh: ## Install zsh + plugins & configure them
+	${call install,zsh}
+	${call copy,zsh}
+	chsh -s /usr/bin/zsh
 
 # Silent commands
 .SILENT:
