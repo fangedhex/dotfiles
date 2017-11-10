@@ -16,6 +16,11 @@ set $base0D #89DDFF
 set $base0E #82AAFF
 set $base0F #EC5F67
 
+# ------------- WORKSPACES -------------------
+set $wsCode "1:code"
+set $wsTerm "2:term"
+set $wsWeb "3:web"
+
 set_from_resource $active active
 set_from_resource $inactive inactive
 
@@ -38,6 +43,7 @@ new_window pixel 2
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
+set $alt Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -59,14 +65,14 @@ font pango:RobotoMono-Regular 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec i3-sensible-terminal; workspace $wsTerm
 
 # kill focused window
 bindsym $mod+Shift+A kill
-bindsym Alt+F4 kill
+bindsym $alt+F4 kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec rofi -show drun
+bindsym $mod+d exec rofi -show drun -display-drun "App Name"
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -122,14 +128,10 @@ bindsym $mod+q focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-set $ws1 "1:code"
-set $ws2 "2:term"
-set $ws3 "3:web"
-
 # switch to workspace
-bindsym $mod+ampersand workspace $ws1
-bindsym $mod+eacute workspace $ws2
-bindsym $mod+quotedbl workspace $ws3
+bindsym $mod+ampersand workspace $wsCode
+bindsym $mod+eacute workspace $wsTerm
+bindsym $mod+quotedbl workspace $wsWeb
 bindsym $mod+apostrophe workspace 4
 bindsym $mod+parenleft workspace 5
 bindsym $mod+minus workspace 6
@@ -139,16 +141,16 @@ bindsym $mod+ccedilla workspace 9
 bindsym $mod+agrave workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $ws1
-bindsym $mod+Shift+eacute move container to workspace $ws2
-bindsym $mod+Shift+3 move container to workspace $ws3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+egrave move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+ccedilla move container to workspace 9
-bindsym $mod+Shift+agrave move container to workspace 10
+bindsym $mod+Shift+1 move container to workspace $wsCode; workspace $wsCode
+bindsym $mod+Shift+eacute move container to workspace $wsTerm; workspace $wsTerm
+bindsym $mod+Shift+3 move container to workspace $wsWeb; workspace $wsWeb
+bindsym $mod+Shift+4 move container to workspace 4; workspace 4
+bindsym $mod+Shift+5 move container to workspace 5; workspace 5
+bindsym $mod+Shift+6 move container to workspace 6; workspace 6
+bindsym $mod+Shift+egrave move container to workspace 7; workspace 7
+bindsym $mod+Shift+8 move container to workspace 8; workspace 8
+bindsym $mod+Shift+ccedilla move container to workspace 9; workspace 9
+bindsym $mod+Shift+agrave move container to workspace 10; workspace 10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -197,8 +199,8 @@ exec --no-startup-id compton
 exec --no-startup-id feh --bg-scale ~/.config/feh/bg.png
 
 # Assigning Window
-assign [class="Code"] $ws1
-assign [class="URxvt"] $ws2
-assign [class="Firefox"] $ws3
+assign [class="Code"] $wsCode
+assign [class="URxvt"] $wsTerm
+assign [class="Firefox"] $wsWeb
 
 gaps inner 1
