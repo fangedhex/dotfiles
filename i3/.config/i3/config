@@ -16,6 +16,9 @@ set $base0D #89DDFF
 set $base0E #82AAFF
 set $base0F #EC5F67
 
+# Disabling mouse focus following
+focus_follows_mouse no
+
 # ------------- WORKSPACES -------------------
 set $wsCode "1:code"
 set $wsTerm "2:term"
