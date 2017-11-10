@@ -68,7 +68,7 @@
 *color15:               light_white
 
 ! URxvt config
-URxvt*font: xft:RobotoMono-Regular:size=10
+URxvt*font: xft:MesloLGSDZ-Regular:size=10
 URxvt*scrollBar: false
 URxvt*cursorBlink: true
 URxvt.internalBorder: 5
