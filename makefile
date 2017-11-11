@@ -1,6 +1,6 @@
 # Function for installing arch linux packages
 define install
-	xargs -d '\n' -a pkg/$1.txt yaourt --noconfirm --needed -S
+	xargs -d '\n' -a packages/$1.list yaourt --noconfirm --needed -S
 endef
 
 # Function to "copy" (symlink) to the $HOME directory
@@ -8,38 +8,44 @@ define copy
 	stow -t ~ $1
 endef
 
+# Avoid that make thinks we are calling the sub directories
+.PHONY: help deps i3 compton polybar termite zsh icons_theme cursor_theme 
+
 # Default to an HELP/Menu command
-all: 
+help: ## Show this help
 	echo "--- Makefile Menu ---"
 	echo -e "$$(grep -hE '^\S+:.*##' $(MAKEFILE_LIST) | sed -e 's/:.*##\s*/:/' -e 's/^\(.\+\):\(.*\)/\\x1b[36m\1\\x1b[m:\2/' | column -c2 -t -s :)"
-
-.PHONY: deps i3 icons_theme cursor_theme termite zsh
 
 deps: ## Install dependencies program that the makefile use
 	${call install,deps}
 
-i3: deps icons_theme cursor_theme ## Install & configure i3wm
+i3: deps compton polybar termite ## Install & configure i3wm + addons
 	${call install,i3}
-	${call copy,i3}
+	${call copy,i3}		
+	${call copy,feh}
+
+compton: deps ## Install & configure compton
+	${call install,compton}
 	${call copy,compton}
+
+polybar: deps ## Install & configure polybar
 	${call copy,polybar}
 	chmod +x ~/.config/polybar/launch.sh
-	${call copy,feh}
+
+termite: deps zsh ## Install & configure termite
+	${call install,termite}
+	${call copy,termite}
+
+zsh: deps ## Install zsh + plugins & configure them
+	${call install,zsh}
+	${call copy,zsh}
+	chsh -s /usr/bin/zsh
 
 icons_theme: ## Install the icons theme
 	${call install,icons_theme}
 
 cursor_theme: ## Install the cursor theme
 	${call install,cursor_theme}
-
-termite:
-	${call install,termite}
-	${call copy,termite}
-
-zsh: ## Install zsh + plugins & configure them
-	${call install,zsh}
-	${call copy,zsh}
-	chsh -s /usr/bin/zsh
 
 # Silent commands
 .SILENT:
