@@ -13,15 +13,13 @@ all:
 	echo "--- Makefile Menu ---"
 	echo -e "$$(grep -hE '^\S+:.*##' $(MAKEFILE_LIST) | sed -e 's/:.*##\s*/:/' -e 's/^\(.\+\):\(.*\)/\\x1b[36m\1\\x1b[m:\2/' | column -c2 -t -s :)"
 
-.PHONY: deps i3 icons_theme cursor_theme zsh
+.PHONY: deps i3 icons_theme cursor_theme termite zsh
 
 deps: ## Install dependencies program that the makefile use
 	${call install,deps}
 
 i3: deps icons_theme cursor_theme ## Install & configure i3wm
 	${call install,i3}
-	${call copy,xres}
-	xrdb ~/.Xresources
 	${call copy,i3}
 	${call copy,compton}
 	${call copy,polybar}
@@ -33,6 +31,10 @@ icons_theme: ## Install the icons theme
 
 cursor_theme: ## Install the cursor theme
 	${call install,cursor_theme}
+
+termite:
+	${call install,termite}
+	${call copy,termite}
 
 zsh: ## Install zsh + plugins & configure them
 	${call install,zsh}
