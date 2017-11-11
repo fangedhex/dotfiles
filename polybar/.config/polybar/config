@@ -16,6 +16,10 @@ primary = ${xrdb:active:#ffb52a}
 secondary = #e60053
 alert = #bd2c40
 
+active = ${xrdb:active}
+urgent = ${xrdb:color1}
+underline = ${xrdb:active}
+
 [bar/default]
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
@@ -322,30 +326,21 @@ ramp-foreground = ${colors.foreground-alt}
 
 [module/powermenu]
 type = custom/menu
-
+label-active-font = 1
 format-spacing = 1
-
-label-open = 
-label-open-foreground = ${colors.secondary}
-label-close =  cancel
-label-close-foreground = ${colors.secondary}
+label-open = 
+label-open-foreground = ${colors.active}
+label-close = 
+label-close-foreground = ${colors.urgent}
 label-separator = |
-label-separator-foreground = ${colors.foreground-alt}
+label-separator-foreground = ${colors.secondary}
 
 menu-0-0 = reboot
-menu-0-0-exec = menu-open-1
+menu-0-0-foreground = ${colors.foreground}
+menu-0-0-exec = reboot
 menu-0-1 = power off
-menu-0-1-exec = menu-open-2
-
-menu-1-0 = cancel
-menu-1-0-exec = menu-open-0
-menu-1-1 = reboot
-menu-1-1-exec = sudo reboot
-
-menu-2-0 = power off
-menu-2-0-exec = sudo poweroff
-menu-2-1 = cancel
-menu-2-1-exec = menu-open-0
+menu-0-1-foreground = ${colors.foreground}
+menu-0-1-exec = poweroff
 
 [settings]
 screenchange-reload = true
