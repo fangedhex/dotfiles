@@ -1,5 +1,6 @@
 [options]
 font = MesloLGSDZ Regular 10
+dynamic_title=false
 
 [colors]
 foreground      = #B3B3D4
