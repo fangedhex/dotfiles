@@ -16,6 +16,9 @@ set $base0D #89DDFF
 set $base0E #82AAFF
 set $base0F #EC5F67
 
+set $active $base0A
+set $inactive $base03
+
 # Disabling mouse focus following
 focus_follows_mouse no
 
@@ -23,9 +26,6 @@ focus_follows_mouse no
 set $wsCode "1:code"
 set $wsTerm "2:term"
 set $wsWeb "3:web"
-
-set_from_resource $active active
-set_from_resource $inactive inactive
 
 # Basic color configuration using the Base16 variables for windows and borders.
 # Property Name         Border    BG        Text    Indicator Child Border
@@ -203,7 +203,7 @@ exec --no-startup-id feh --bg-scale ~/.config/feh/bg.png
 
 # Assigning Window
 assign [class="Code"] $wsCode
-assign [class="termite"] $wsTerm
+assign [class="Termite"] $wsTerm
 assign [class="Firefox"] $wsWeb
 
 gaps inner 1
