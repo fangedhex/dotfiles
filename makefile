@@ -9,7 +9,7 @@ define copy
 endef
 
 # Avoid that make thinks we are calling the sub directories
-.PHONY: help deps i3 compton polybar termite zsh gtk icons_theme cursor_theme 
+.PHONY: help deps i3 compton polybar termite zsh gtk icons_theme cursor_theme dev
 
 # Default to an HELP/Menu command
 help: ## Show this help
@@ -47,6 +47,9 @@ icons_theme: ## Install the icons theme
 
 cursor_theme: ## Install the cursor theme
 	${call install,cursor_theme}
+
+dev: ## Install dev softwares
+	${call install,dev}
 
 # Silent commands
 .SILENT:

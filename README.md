@@ -1,16 +1,14 @@
 # My linux config (dotfiles)
-My Linux config
+## Environment
+
+- OS : Arch Linux (Antergos) 64 bits
+- Desktop : i3wm (WM), Polybar
+- GTK Theme : Adapta (maybe gonna change)
+- Terminal : Termite
 
 ## Screenshots
 
-Desktop almost finished ! :)
+![Terminal](./screenshots/terminal.png)
 
-![Desktop](./screenshots/desktop_v1.png)
+![Coding workspace](./screenshots/code.png)
 
-![Desktop V2](./screenshots/desktop_v2.png)
-
-## Environment
-- OS : Arch Linux (Antergos) 64 bits
-- WM : i3wm
-- GTK Theme : Adapta
-- Terminal : URxvt
