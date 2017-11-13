@@ -21,8 +21,7 @@ deps: ## Install dependencies program that the makefile use
 
 i3: deps compton polybar termite ## Install & configure i3wm + addons
 	${call install,i3}
-	${call copy,i3}		
-	${call copy,feh}
+	${call copy,i3}
 
 compton: deps ## Install & configure compton
 	${call install,compton}
@@ -30,7 +29,6 @@ compton: deps ## Install & configure compton
 
 polybar: deps ## Install & configure polybar
 	${call copy,polybar}
-	chmod +x ~/.config/polybar/launch.sh
 
 termite: deps zsh ## Install & configure termite
 	${call install,termite}

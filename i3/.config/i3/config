@@ -199,7 +199,7 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Autostartup
 exec --no-startup-id compton
-exec --no-startup-id feh --bg-scale ~/.config/feh/bg.png
+exec_always --no-startup-id ~/.config/i3/unsplash-wallpaper.sh
 
 # Assigning Window
 assign [class="Code"] $wsCode
