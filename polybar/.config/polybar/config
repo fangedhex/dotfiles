@@ -120,7 +120,7 @@ label-mode-padding = 2
 
 ; focused = Active workspace on focused monitor
 label-focused = %index% %icon%
-label-focused-background = #88000000
+label-focused-background = ${colors.background}
 label-focused-underline = #ddd
 ;label-focused-underline = ${module/bspwm.label-focused-underline}
 label-focused-padding = 2
