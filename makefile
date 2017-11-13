@@ -9,7 +9,7 @@ define copy
 endef
 
 # Avoid that make thinks we are calling the sub directories
-.PHONY: help deps i3 compton polybar termite zsh icons_theme cursor_theme 
+.PHONY: help deps i3 compton polybar termite zsh gtk icons_theme cursor_theme 
 
 # Default to an HELP/Menu command
 help: ## Show this help
@@ -38,6 +38,9 @@ zsh: deps ## Install zsh + plugins & configure them
 	${call install,zsh}
 	${call copy,zsh}
 	chsh -s /usr/bin/zsh
+
+gtk: deps
+	${call copy,gtk}
 
 icons_theme: ## Install the icons theme
 	${call install,icons_theme}
