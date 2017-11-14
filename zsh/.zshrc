@@ -1,5 +1,3 @@
-source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
-
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
@@ -17,6 +15,8 @@ POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
 
 POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=""
 POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=""
+
+source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
 
 # Vars
 EDITOR=vim
