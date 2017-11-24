@@ -75,9 +75,9 @@ bindsym $mod+Shift+A kill
 bindsym $alt+F4 kill
 
 # Launch menus
-bindsym $mod+d exec rofi -show drun -display-drun "App Name"
-bindsym $mod+c exec rofi -show run -display-run "Command"
-bindsym $mod+w exec rofi -show window -display-run "Window"
+bindsym $mod+d exec rofi -show drun
+bindsym $mod+c exec rofi -show run
+bindsym $mod+w exec rofi -show window
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that

@@ -9,7 +9,7 @@ define copy
 endef
 
 # Avoid that make thinks we are calling the sub directories
-.PHONY: help deps i3 compton polybar termite zsh gtk icons_theme cursor_theme dev
+.PHONY: help deps i3 compton polybar termite rofi zsh gtk icons_theme cursor_theme dev
 
 # Default to an HELP/Menu command
 help: ## Show this help
@@ -19,7 +19,7 @@ help: ## Show this help
 deps: ## Install dependencies program that the makefile use
 	${call install,deps}
 
-i3: deps compton polybar termite ## Install & configure i3wm + addons
+i3: deps compton polybar termite rofi ## Install & configure i3wm + addons
 	${call install,i3}
 	${call copy,i3}
 
@@ -33,6 +33,10 @@ polybar: deps ## Install & configure polybar
 termite: deps zsh ## Install & configure termite
 	${call install,termite}
 	${call copy,termite}
+
+rofi: deps ## Install & config rofi
+	${call install,rofi}
+	${call copy,rofi}
 
 zsh: deps ## Install zsh + plugins & configure them
 	${call install,zsh}
