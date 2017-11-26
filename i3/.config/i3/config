@@ -19,13 +19,25 @@ set $base0F #EC5F67
 set $active $base0A
 set $inactive $base03
 
-# Disabling mouse focus following
+# Disabling mouse focus following or warping
 focus_follows_mouse no
+mouse_warping none
+
+# ------------- MONITORS ---------------------
+set $primMonitor "DVI-I-1"
+set $sideMonitor "DVI-D-0"
+
+# Temp fix for moving monitors
+exec --no-startup-id xrandr --output $sideMonitor --left-of $primMonitor
 
 # ------------- WORKSPACES -------------------
 set $wsCode "1:code"
 set $wsTerm "2:term"
 set $wsWeb "3:web"
+
+workspace $wsCode output $primMonitor
+workspace $wsTerm output $sideMonitor
+workspace $wsWeb output $sideMonitor
 
 # Basic color configuration using the Base16 variables for windows and borders.
 # Property Name         Border    BG        Text    Indicator Child Border
@@ -202,7 +214,7 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Autostartup
 exec --no-startup-id compton
-exec_always --no-startup-id ~/.config/i3/unsplash-wallpaper.sh
+exec_always --no-startup-id $HOME/.config/i3/unsplash-wallpaper.sh
 
 # Assigning Window
 assign [class="Code"] $wsCode
