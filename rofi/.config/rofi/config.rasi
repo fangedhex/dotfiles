@@ -4,7 +4,7 @@ configuration {
 /*	lines: 15;*/
 /*	columns: 1;*/
 	font: "ShureTechMono Nerd Font Regular 13";
-	bw: 1;
+/*	bw: 1;*/
 /*	location: 0;*/
 	padding: 200;
 /*	yoffset: 0;*/
@@ -25,14 +25,14 @@ configuration {
 /*	case-sensitive: false;*/
 /*	cycle: true;*/
 /*	sidebar-mode: false;*/
-	eh: 1;
+/*	eh: 1;*/
 /*	auto-select: false;*/
 /*	parse-hosts: false;*/
 /*	parse-known-hosts: true;*/
 /*	combi-modi: "window,run";*/
 /*	matching: "normal";*/
 /*	tokenize: true;*/
-/*	m: "-5";*/
+	m: "primary";
 	line-margin: 10;
 /*	line-padding: 1;*/
 /*	filter: ;*/
