@@ -231,7 +231,7 @@ exec_always --no-startup-id numlockx on
 
 # Assigning Window
 assign [class="Code"] $wsCode
-assign [class="atom"] $wsCode
+assign [class="Atom"] $wsCode
 assign [class="Termite"] $wsTerm
 assign [class="Firefox"] $wsWeb
 
