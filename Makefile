@@ -44,11 +44,12 @@ rofi: deps ## Install & config rofi
 	${call install,rofi}
 	${call copy,rofi}
 
-zsh: deps ## Install zsh + plugins & configure them
-	echo "Checking/Installing zsh ..."
-	${call install,zsh}
-	${call copy,zsh}
-	if [ "$$SHELL" != "/usr/bin/zsh" ]; then chsh -s /usr/bin/zsh; fi
+fish: deps ## Install Fish shell + plugins
+	${call install,fish}
+	if [ "$$SHELL" != "/usr/bin/fish" ]; then chsh -s /usr/bin/fish; fi
+	if [ ! -d "$$HOME/.local/share/omf/" ]; then curl -L https://get.oh-my.fish | fish; fi
+	echo "omf install bobthefish" | fish
+	echo "set -g theme_display_date no" | fish
 
 gtk_config: deps
 	echo "Checking/Installing gtk config ..."
@@ -65,4 +66,3 @@ dev: ## Install dev softwares
 
 # Silent commands
 .SILENT:
-	
