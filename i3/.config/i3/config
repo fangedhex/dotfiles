@@ -34,10 +34,15 @@ exec --no-startup-id xrandr --output $sideMonitor --left-of $primMonitor
 set $wsCode "1:code"
 set $wsTerm "2:term"
 set $wsWeb "3:web"
+set $wsSpotify "8:spotify"
+set $wsTrello "9:trello"
+set $wsDiscord "10:discord"
 
 workspace $wsCode output $primMonitor
 workspace $wsTerm output $sideMonitor
 workspace $wsWeb output $sideMonitor
+workspace $wsTrello output $sideMonitor
+workspace $wsDiscord output $sideMonitor
 
 # Basic color configuration using the Base16 variables for windows and borders.
 # Property Name         Border    BG        Text    Indicator Child Border
@@ -154,9 +159,9 @@ bindsym $mod+apostrophe workspace 4
 bindsym $mod+parenleft workspace 5
 bindsym $mod+minus workspace 6
 bindsym $mod+egrave workspace 7
-bindsym $mod+underscore workspace 8
-bindsym $mod+ccedilla workspace 9
-bindsym $mod+agrave workspace 10
+bindsym $mod+underscore workspace $wsSpotify
+bindsym $mod+ccedilla workspace $wsTrello
+bindsym $mod+agrave workspace $wsDiscord
 
 # switch to workspace (With numpad)
 bindsym $mod+KP_1 workspace $wsCode
@@ -166,9 +171,9 @@ bindsym $mod+KP_4 workspace 4
 bindsym $mod+KP_5 workspace 5
 bindsym $mod+KP_6 workspace 6
 bindsym $mod+KP_7 workspace 7
-bindsym $mod+KP_8 workspace 8
-bindsym $mod+KP_9 workspace 9
-bindsym $mod+KP_0 workspace 10
+bindsym $mod+KP_8 workspace $wsSpotify
+bindsym $mod+KP_9 workspace $wsTrello
+bindsym $mod+KP_0 workspace $wsDiscord
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $wsCode; workspace $wsCode
@@ -178,9 +183,9 @@ bindsym $mod+Shift+4 move container to workspace 4; workspace 4
 bindsym $mod+Shift+5 move container to workspace 5; workspace 5
 bindsym $mod+Shift+6 move container to workspace 6; workspace 6
 bindsym $mod+Shift+egrave move container to workspace 7; workspace 7
-bindsym $mod+Shift+8 move container to workspace 8; workspace 8
-bindsym $mod+Shift+ccedilla move container to workspace 9; workspace 9
-bindsym $mod+Shift+agrave move container to workspace 10; workspace 10
+bindsym $mod+Shift+8 move container to workspace $wsSpotify; workspace $wsSpotify
+bindsym $mod+Shift+ccedilla move container to workspace $wsTrello; workspace $wsTrello
+bindsym $mod+Shift+agrave move container to workspace $wsDiscord; workspace $wsDiscord
 
 # Move entire workspace
 bindsym $mod+$alt+Left move workspace to output $sideMonitor
@@ -232,12 +237,18 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id compton
 exec_always --no-startup-id $HOME/.config/i3/unsplash-wallpaper.sh
 exec_always --no-startup-id numlockx on
+exec --no-startup-id spotify
+exec --no-startup-id trello
+exec --no-startup-id discord
 
 # Assigning Window
-assign [class="Code"] $wsCode
 assign [class="Atom"] $wsCode
 assign [class="Qt*"] $wsCode
 assign [class="Termite"] $wsTerm
 assign [class="Firefox"] $wsWeb
+assign [class="Spotify"] $wsSpotify
+for_window [class="Spotify"] move to workspace $wsSpotify
+assign [class="Trello"] $wsTrello
+assign [class="discord"] $wsDiscord
 
 gaps inner 1
