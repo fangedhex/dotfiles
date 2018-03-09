@@ -41,6 +41,7 @@ set $wsDiscord "10:discord"
 workspace $wsCode output $primMonitor
 workspace $wsTerm output $sideMonitor
 workspace $wsWeb output $sideMonitor
+workspace $wsSpotify output $sideMonitor
 workspace $wsTrello output $sideMonitor
 workspace $wsDiscord output $sideMonitor
 
@@ -237,13 +238,14 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id compton
 exec_always --no-startup-id $HOME/.config/i3/unsplash-wallpaper.sh
 exec_always --no-startup-id numlockx on
+exec --no-startup-id termite
+exec --no-startup-id firefox https://github.com/
 exec --no-startup-id spotify
 exec --no-startup-id trello
 exec --no-startup-id discord
 
 # Assigning Window
-assign [class="Atom"] $wsCode
-assign [class="Qt*"] $wsCode
+assign [class="Code"] $wsCode
 assign [class="Termite"] $wsTerm
 assign [class="Firefox"] $wsWeb
 assign [class="Spotify"] $wsSpotify
