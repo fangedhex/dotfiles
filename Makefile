@@ -34,7 +34,7 @@ polybar: deps ## Install & configure polybar
 	echo "Checking/Installing polybar ..."
 	${call copy,polybar}
 
-termite: deps zsh gtk_config ## Install & configure termite
+termite: deps fish gtk_config ## Install & configure termite
 	echo "Checking/Installing termite ..."
 	${call install,termite}
 	${call copy,termite}
