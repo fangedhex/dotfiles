@@ -1,9 +1,10 @@
 configuration {
-/*	modi: "window,run,ssh";*/
+	modi: "drun,window,run";
 /*	width: 50;*/
 /*	lines: 15;*/
 /*	columns: 1;*/
-	font: "ShureTechMono Nerd Font Regular 13";
+/*	font: "ShureTechMono Nerd Font Regular 13";*/
+	font: "Source Code Pro 16";
 /*	bw: 1;*/
 /*	location: 0;*/
 	padding: 200;
@@ -23,7 +24,7 @@ configuration {
 /*	sort: false;*/
 /*	levenshtein-sort: false;*/
 /*	case-sensitive: false;*/
-/*	cycle: true;*/
+/*	cycle: false;*/
 /*	sidebar-mode: false;*/
 /*	eh: 1;*/
 /*	auto-select: false;*/
@@ -37,7 +38,7 @@ configuration {
 /*	line-padding: 1;*/
 /*	filter: ;*/
 	separator-style: "solid";
-	hide-scrollbar: true;
+	hide-scrollbar: false;
 	fullscreen: true;
 /*	fake-transparency: false;*/
 /*	dpi: -1;*/

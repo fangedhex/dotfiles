@@ -92,11 +92,6 @@ bindsym $mod+Return exec termite; workspace $wsTerm
 bindsym $mod+Shift+A kill
 bindsym $alt+F4 kill
 
-# Launch menus
-bindsym $mod+d exec rofi -show drun
-bindsym $mod+c exec rofi -show run
-bindsym $mod+w exec rofi -show window
-
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -233,6 +228,9 @@ bindsym $mod+r mode "resize"
 
 # We launch polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+# Launch menu
+bindsym $mod+d exec rofi -show
 
 # Autostartup
 exec --no-startup-id compton
