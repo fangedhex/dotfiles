@@ -3,7 +3,6 @@ configuration {
 /*	width: 50;*/
 /*	lines: 15;*/
 /*	columns: 1;*/
-/*	font: "ShureTechMono Nerd Font Regular 13";*/
 	font: "Source Code Pro 16";
 /*	bw: 1;*/
 /*	location: 0;*/

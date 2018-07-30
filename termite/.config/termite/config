@@ -1,5 +1,4 @@
 [options]
-#font = ShureTechMono Nerd Font Regular 13
 font = Source Code Pro Regular 12
 dynamic_title=false
 
