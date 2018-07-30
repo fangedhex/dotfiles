@@ -1,6 +1,6 @@
 # Function for installing arch linux packages
 define install
-	while read line; do yaourt -Q $$line >/dev/null || yaourt --noconfirm -S $$line; done < packages/$1.list
+	while read line; do yay -Q $$line >/dev/null || yay --noconfirm -S $$line; done < packages/$1.list
 endef
 
 # Function to "copy" (symlink) to the $HOME directory
@@ -30,16 +30,16 @@ compton: deps ## Install & configure compton
 	${call install,compton}
 	${call copy,compton}
 
-polybar: deps ## Install & configure polybar
+polybar: deps fonts ## Install & configure polybar
 	echo "Checking/Installing polybar ..."
 	${call copy,polybar}
 
-termite: deps fish gtk_config ## Install & configure termite
+termite: deps fish gtk_config fonts ## Install & configure termite
 	echo "Checking/Installing termite ..."
 	${call install,termite}
 	${call copy,termite}
 
-rofi: deps ## Install & config rofi
+rofi: deps fonts ## Install & config rofi
 	echo "Checking/Installing rofi ..."
 	${call install,rofi}
 	${call copy,rofi}
@@ -61,6 +61,10 @@ icons_theme: ## Install the icons theme
 
 cursor_theme: ## Install the cursor theme
 	${call install,cursor_theme}
+
+fonts: deps
+	echo "Checking/Installing fonts ..."
+	${call install,fonts}
 
 dev: ## Install dev softwares
 	${call install,dev}

@@ -53,8 +53,8 @@ line-color = #f00
 border-size  = 0
 border-color = ${colors.foreground}
 
-padding-left  = 2
-padding-right = 2
+padding-left  = 1
+padding-right = 1
 
 module-margin-left  = 1
 module-margin-right = 1
@@ -100,7 +100,7 @@ format         = <label-mode><label-state>
 ; Only show workspaces on the same output as the bar
 pin-workspaces = true
 
-label-mode-padding     = 2
+label-mode-padding     = 0
 ;label-mode-foreground = #000
 ;label-mode-background =
 
@@ -109,7 +109,7 @@ label-focused            = %index% %icon%
 label-focused-background = ${colors.background}
 label-focused-underline  = #ddd
 ;label-focused-underline = ${module/bspwm.label-focused-underline}
-label-focused-padding    = 2
+label-focused-padding    = 1
 
 ;unfocused              = Inactive workspace on any monitor
 label-unfocused         = ${self.label-focused}
