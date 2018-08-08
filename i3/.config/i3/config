@@ -244,11 +244,16 @@ exec_always --no-startup-id numlockx on
 
 # Assigning Window
 assign [class="Code"] $wsCode
+for_window [class="Code"] focus
 assign [class="Termite"] $wsTerm
+assign [class="XTerm"] $wsTerm
 assign [class="Firefox"] $wsWeb
+for_window [class="Firefox"] focus
 assign [class="Spotify"] $wsSpotify
 for_window [class="Spotify"] move to workspace $wsSpotify
 assign [class="Trello"] $wsTrello
+for_window [class="Trello"] focus
 assign [class="discord"] $wsDiscord
+for_window [class="discord"] focus
 
 gaps inner 1
