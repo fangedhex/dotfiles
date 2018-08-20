@@ -16,8 +16,9 @@ set $base0D #89DDFF
 set $base0E #82AAFF
 set $base0F #EC5F67
 
-set $active $base0A
-set $inactive $base03
+set $active #efefef
+set $active_indicator #d9d9d9
+set $inactive #212121
 
 # Disabling mouse focus following or warping
 focus_follows_mouse no
@@ -46,18 +47,19 @@ workspace $wsTrello output $sideMonitor
 workspace $wsDiscord output $sideMonitor
 
 # Basic color configuration using the Base16 variables for windows and borders.
-# Property Name         Border    BG        Text    Indicator Child Border
-client.focused          $active   $active   $base07 $base07   $active
-client.focused_inactive $inactive $inactive $base05 $base03   $inactive
-client.unfocused        $inactive $inactive $base05 $base03   $inactive
-client.urgent           $base08   $base08   $base00 $base08   $base08
-client.placeholder      $base00   $base00   $base05 $base00   $base00
+# Property Name         Border    BG        Text    Indicator           Child Border
+client.focused          $active   $active   $base07 $active_indicator   $active
+client.focused_inactive $inactive $inactive $base05 $base03             $inactive
+client.unfocused        $inactive $inactive $base05 $base03             $inactive
+client.urgent           $base08   $base08   $base00 $base08             $base08
+client.placeholder      $base00   $base00   $base05 $base00             $base00
 client.background       $base07
 
 gaps inner 8
-gaps outer 3
+gaps outer 5
 
-new_window pixel 2
+default_border pixel 3
+default_floating_border pixel 3
 
 # i3 config file (v4)
 #

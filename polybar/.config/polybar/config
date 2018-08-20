@@ -9,12 +9,12 @@
 
 [colors]
 ; Basic colors
-background = #222D32
-foreground = #D8DEE9
-primary    = #ffb52a
-secondary  = #e60053
-urgent     = #bd2c40
-active     = #D8DEE9
+background = #232322
+foreground = #e5e5e5
+primary    = #f6981e
+secondary  = #e83b3f
+urgent     = #b7141f
+active     = #efefef
 
 ; Sub-module colors
 power = ${colors.urgent}
@@ -42,12 +42,12 @@ fixed-center   = true
 top            = true
 
 background = ${colors.background}
-foreground = #eee
+foreground = ${colors.foreground}
 
 underline-size  = 2
-underline-color = #eee
+underline-color = ${colors.foreground}
 
-line-size  = 3
+line-size  = 0
 line-color = #f00
 
 border-size  = 0
@@ -64,8 +64,8 @@ font-1 = Font Awesome 5 Free:style=Solid:size=10;2
 font-2 = Font Awesome 5 Brands:style=Regular:size=11;2
 
 modules-left   = i3
-modules-center = xwindow
-modules-right  = date volume eth powermenu
+modules-center = date
+modules-right  = volume eth powermenu
 
 tray-position     = right
 tray-padding      = 2
@@ -107,7 +107,7 @@ label-mode-padding     = 0
 ;focused                 = Active workspace on focused monitor
 label-focused            = %index% %icon%
 label-focused-background = ${colors.background}
-label-focused-underline  = #ddd
+label-focused-underline  = ${colors.foreground}
 ;label-focused-underline = ${module/bspwm.label-focused-underline}
 label-focused-padding    = 1
 
@@ -155,13 +155,13 @@ label-disconnected = 
 type     = internal/date
 interval = 5
 
-date     = "%d/%m/%Y"
+date     = "%A %d/%m/%Y"
 date-alt =
 
 time     = "%H:%M"
 time-alt =
 
-format-prefix            =
+format-prefix            = 
 format-prefix-foreground = ${colors.foreground}
 format-underline         =
 
@@ -189,18 +189,22 @@ bar-volume-empty-foreground = ${colors.secondary}
 [module/powermenu]
 type                       = custom/menu
 label-active-font          = 1
-format-spacing             = 1
 label-open                 = 
-label-open-foreground      = ${colors.power}
-label-close                = 
+label-open-foreground      = ${colors.primary}
+label-close                = 
 label-close-foreground     = ${colors.power}
-label-separator            = |
-label-separator-foreground = ${colors.secondary}
+label-separator            = $
+label-separator-foreground = ${colors.background}
 
-menu-0-0            = reboot
+format         = <menu> <label-toggle>
+format-padding = 0
+format-margin  = 0
+format-spacing = 1
+
+menu-0-0            = 
 menu-0-0-foreground = ${colors.foreground}
 menu-0-0-exec       = reboot
-menu-0-1            = power off
+menu-0-1            = 
 menu-0-1-foreground = ${colors.foreground}
 menu-0-1-exec       = poweroff
 
