@@ -244,6 +244,10 @@ exec_always --no-startup-id numlockx on
 # exec --no-startup-id trello
 # exec --no-startup-id discord
 
+# Mouse fix
+exec --no-startup-id xinput --set-prop 8 298 -1
+exec --no-startup-id xinput --set-prop 8 301 -1 0
+
 # Assigning Window
 assign [class="Code"] $wsCode
 for_window [class="Code"] focus
