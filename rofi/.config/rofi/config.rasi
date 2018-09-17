@@ -3,7 +3,7 @@ configuration {
 /*	width: 50;*/
 /*	lines: 15;*/
 /*	columns: 1;*/
-	font: "Source Code Pro 16";
+	font: "Fira Code 16";
 /*	bw: 1;*/
 /*	location: 0;*/
 	padding: 200;
@@ -48,11 +48,11 @@ configuration {
 /*	window-format: "{w}    {i}{c}   {t}";*/
 /*	click-to-exit: true;*/
 /*	show-match: true;*/
-/*	theme: ;*/
-	color-normal: "argb:02000000,#D8DEE9,argb:02000000,argb:02000000,#EBCB8B";
-	color-urgent: "argb:02000000,#D8DEE9,argb:02000000,argb:02000000,#D8DEE9";
-	color-active: "argb:02000000,#D8DEE9,argb:02000000,argb:02000000,#D8DEE9";
-	color-window: "argb:e8222D32,argb:00292f37,#EBCB8B";
+	theme: "theme";
+/*	color-normal: "argb:02000000,#D8DEE9,argb:02000000,argb:02000000,#EBCB8B";*/
+/*	color-urgent: "argb:02000000,#D8DEE9,argb:02000000,argb:02000000,#D8DEE9";*/
+/*	color-active: "argb:02000000,#D8DEE9,argb:02000000,argb:02000000,#D8DEE9";*/
+/*	color-window: "argb:e8222D32,argb:00292f37,#EBCB8B";*/
 /*	plugin-path: "/usr/lib/rofi";*/
 /*	pid: "/run/user/1000/rofi.pid";*/
 	display-window: "Fenêtre";
