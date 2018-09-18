@@ -34,10 +34,10 @@ polybar: deps fonts ## Install & configure polybar
 	echo "Checking/Installing polybar ..."
 	${call copy,polybar}
 
-termite: deps fish gtk_config fonts ## Install & configure termite
-	echo "Checking/Installing termite ..."
-	${call install,termite}
-	${call copy,termite}
+kitty: deps fish fonts ## Install & configure termite
+	echo "Checking/Installing kitty ..."
+	${call install,kitty}
+	${call copy,kitty}
 
 rofi: deps fonts ## Install & config rofi
 	echo "Checking/Installing rofi ..."
@@ -51,10 +51,6 @@ fish: deps ## Install Fish shell + plugins
 	echo "omf install bobthefish" | fish
 	echo "set -g theme_display_date no" | fish
 	${call copy,fish}
-
-gtk_config: deps
-	echo "Checking/Installing gtk config ..."
-	${call copy,gtk}
 
 icons_theme: ## Install the icons theme
 	${call install,icons_theme}
