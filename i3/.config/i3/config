@@ -88,7 +88,7 @@ font pango:RobotoMono-Regular 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec termite; workspace $wsTerm
+bindsym $mod+Return exec kitty; workspace $wsTerm
 
 # kill focused window
 bindsym $mod+Shift+A kill
@@ -251,7 +251,7 @@ exec --no-startup-id xinput --set-prop 8 301 -1 0
 # Assigning Window
 assign [class="Code"] $wsCode
 for_window [class="Code"] focus
-assign [class="Termite"] $wsTerm
+assign [class="kitty"] $wsTerm
 assign [class="XTerm"] $wsTerm
 assign [class="Firefox"] $wsWeb
 for_window [class="Firefox"] focus
