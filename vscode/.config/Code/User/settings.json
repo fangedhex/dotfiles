@@ -7,31 +7,10 @@
     "extensions.ignoreRecommendations": true,
     "explorer.autoReveal": false,
     "workbench.iconTheme": "material-icon-theme",
-    "workbench.colorCustomizations": {
-        "activityBarBadge.background": "#C6FF00",
-        "list.activeSelectionForeground": "#C6FF00",
-        "list.inactiveSelectionForeground": "#C6FF00",
-        "list.highlightForeground": "#C6FF00",
-        "scrollbarSlider.activeBackground": "#C6FF0050",
-        "editorSuggestWidget.highlightForeground": "#C6FF00",
-        "textLink.foreground": "#C6FF00",
-        "progressBar.background": "#C6FF00",
-        "pickerGroup.foreground": "#C6FF00",
-        "tab.activeBorder": "#C6FF00",
-        "notificationLink.foreground": "#C6FF00"
-    },
-    "workbench.colorTheme": "Material Theme Darker High Contrast",
+    "workbench.colorTheme": "Solarized Dark",
     "editor.fontFamily": "Fira Code",
     "editor.fontSize": 14,
     "editor.fontLigatures": true,
     "window.zoomLevel": 1,
-    "update.channel": "none",
-    "todo-tree.defaultHighlight": {
-        "foreground": "green",
-        "type": "none"
-    },
-    "todo-tree.customHighlight": {
-        "TODO": {},
-        "FIXME": {}
-    }
+    "update.channel": "none"
 }

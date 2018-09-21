@@ -16,9 +16,9 @@ set $base0D #89DDFF
 set $base0E #82AAFF
 set $base0F #EC5F67
 
-set $active #efefef
-set $active_indicator #d9d9d9
-set $inactive #212121
+set $active #839496
+set $active_indicator #93a1a1
+set $inactive #002b36
 
 # Disabling mouse focus following or warping
 focus_follows_mouse no

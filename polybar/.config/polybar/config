@@ -9,12 +9,13 @@
 
 [colors]
 ; Basic colors
-background = #232322
-foreground = #e5e5e5
-primary    = #f6981e
-secondary  = #e83b3f
-urgent     = #b7141f
-active     = #efefef
+background          = #002b36
+foreground          = #839496
+focus-background    = #657b83
+focus-foreground    = #fdf6e3
+primary             = #f6981e
+secondary           = #e83b3f
+urgent              = #b7141f
 
 ; Sub-module colors
 power = ${colors.urgent}
@@ -106,8 +107,9 @@ label-mode-padding     = 0
 
 ;focused                 = Active workspace on focused monitor
 label-focused            = %index% %icon%
-label-focused-background = ${colors.background}
-label-focused-underline  = ${colors.foreground}
+label-focused-background = ${colors.focus-background}
+label-focused-foreground = ${colors.focus-foreground}
+label-focused-underline  = ${colors.focus-foreground}
 ;label-focused-underline = ${module/bspwm.label-focused-underline}
 label-focused-padding    = 1
 
@@ -118,6 +120,7 @@ label-unfocused-padding = ${self.label-focused-padding}
 ;visible                 = Active workspace on unfocused monitor
 label-visible            = ${self.label-focused}
 label-visible-background = ${self.label-focused-background}
+label-visible-foreground = ${self.label-focused-foreground}
 label-visible-underline  = ${self.label-focused-underline}
 label-visible-padding    = ${self.label-focused-padding}
 
@@ -216,7 +219,7 @@ screenchange-reload     = true
 ;compositing-border     = over
 
 [global/wm]
-margin-top    = 5
-margin-bottom = 5
+margin-top    = 0
+margin-bottom = 0
 
 ; vim:ft=dosini
