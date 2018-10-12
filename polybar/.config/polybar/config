@@ -131,7 +131,7 @@ label-urgent-padding    = ${self.label-focused-padding}
 
 ws-icon-0       = "code;"
 ws-icon-1       = "term;"
-ws-icon-2       = "web;"
+ws-icon-2       = "web;"
 ws-icon-3		= "spotify;"
 ws-icon-4		= "trello;"
 ws-icon-5		= "discord;"

@@ -12,5 +12,13 @@
     "editor.fontSize": 14,
     "editor.fontLigatures": true,
     "window.zoomLevel": 1,
-    "update.channel": "none"
+    "update.channel": "none",
+    "todo-tree.defaultHighlight": {
+        "foreground": "green",
+        "type": "none"
+    },
+    "todo-tree.customHighlight": {
+        "TODO": {},
+        "FIXME": {}
+    }
 }
