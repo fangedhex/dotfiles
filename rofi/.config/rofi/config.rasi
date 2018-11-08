@@ -38,7 +38,7 @@ configuration {
 /*	filter: ;*/
 	separator-style: "solid";
 	hide-scrollbar: false;
-	fullscreen: true;
+	fullscreen: false;
 /*	fake-transparency: false;*/
 /*	dpi: -1;*/
 /*	threads: 0;*/

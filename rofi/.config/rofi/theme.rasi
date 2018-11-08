@@ -4,44 +4,56 @@
  * Copyright: Rasmus Steinke
  ******************************************************************************/
 * {
-    selected-normal-foreground:  rgba ( 129, 147, 150, 100 % );
-    foreground:                  rgba ( 129, 147, 150, 100 % );
+    nord0:			 #2E3440;
+    nord1: 			 #3B4252;
+    nord2: 			 #434C5E;
+    nord3: 			 #4C566A;
+    nord4: 			 #D8DEE9;
+    nord5:  			 #E5E9F0;
+    nord6:  			 #ECEFF4;
+    nord7: 			 #8FBCBB;
+    nord8:   			 #88C0D0;
+    nord9:  			 #81A1C1;
+    nord10: 			 #5E81AC;
+    nord11: 			 #BF616A;
+    nord12: 			 #D08770;
+    nord13: 			 #EBCB8B;
+    nord14: 			 #A3BE8C;
+    nord15: 			 #B48EAD;
+    background:                  @nord0;
+    foreground:                  @nord4;
+    selected-normal-foreground:  @nord4;
     normal-foreground:           @foreground;
-    alternate-normal-background: rgba ( 0, 43, 55, 100 % );
-    red:                         rgba ( 220, 50, 47, 100 % );
-    selected-urgent-foreground:  rgba ( 218, 66, 129, 100 % );
-    blue:                        rgba ( 38, 139, 210, 100 % );
-    urgent-foreground:           rgba ( 218, 66, 129, 100 % );
-    alternate-urgent-background: rgba ( 0, 43, 55, 100 % );
-    active-foreground:           rgba ( 0, 142, 212, 100 % );
-    lightbg:                     rgba ( 238, 232, 213, 100 % );
-    selected-active-foreground:  rgba ( 0, 142, 212, 100 % );
-    alternate-active-background: rgba ( 0, 43, 55, 100 % );
-    background:                  rgba ( 0, 43, 55, 80 % );
-    bordercolor:                 rgba ( 0, 43, 55, 100 % );
+    alternate-normal-background: @nord0;
+    selected-urgent-foreground:  @nord4;
+    urgent-foreground:           @foreground;
+    alternate-urgent-background: @nord0;
+    active-foreground:           @foreground;
+    selected-active-foreground:  @foreground;
+    alternate-active-background: @nord0;
+    bordercolor:                 @nord10;
     alternate-normal-foreground: @foreground;
-    normal-background:           rgba ( 0, 43, 55, 100 % );
-    lightfg:                     rgba ( 88, 104, 117, 100 % );
-    selected-normal-background:  rgba ( 0, 54, 66, 100 % );
-    border-color:                @foreground;
+    normal-background:           @background;
+    selected-normal-background:  @nord3;
+    border-color:                @nord10;
     spacing:                     2;
-    separatorcolor:              rgba ( 0, 54, 66, 100 % );
-    urgent-background:           rgba ( 0, 43, 55, 100 % );
-    selected-urgent-background:  rgba ( 0, 54, 66, 100 % );
+    separatorcolor:              @blue;
+    urgent-background:           @background;
+    selected-urgent-background:  @nord3;
     alternate-urgent-foreground: @urgent-foreground;
-    background-color:            rgba ( 0, 0, 0, 0 % );
+    background-color:            @background;
     alternate-active-foreground: @active-foreground;
-    active-background:           rgba ( 0, 43, 55, 100 % );
-    selected-active-background:  rgba ( 0, 54, 66, 100 % );
+    active-background:           @background;
+    selected-active-background:  @nord3;
 }
 #window {
     background-color: @background;
-    border:           1;
+    border:           3px;
     padding:          5;
 }
 #mainbox {
     border:  0;
-    padding: 200;
+    padding: 20;
 }
 #message {
     border:       1px dash 0px 0px ;

@@ -9,10 +9,10 @@
 
 [colors]
 ; Basic colors
-background          = #002b36
-foreground          = #839496
-focus-background    = #657b83
-focus-foreground    = #fdf6e3
+background          = #282A36
+foreground          = #F8F8F2
+focus-background    = #5E81AC
+focus-foreground    = #F8F8F2
 primary             = #f6981e
 secondary           = #e83b3f
 urgent              = #b7141f

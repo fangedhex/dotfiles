@@ -16,9 +16,9 @@ set $base0D #89DDFF
 set $base0E #82AAFF
 set $base0F #EC5F67
 
-set $active #839496
-set $active_indicator #93a1a1
-set $inactive #002b36
+set $active #5E81AC
+set $active_indicator #88C0D0
+set $inactive #4D4D4D
 
 # Disabling mouse focus following or warping
 focus_follows_mouse no
@@ -58,8 +58,8 @@ client.background       $base07
 gaps inner 8
 gaps outer 5
 
-default_border pixel 3
-default_floating_border pixel 3
+default_border pixel 4
+default_floating_border pixel 4
 
 # i3 config file (v4)
 #

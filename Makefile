@@ -48,7 +48,7 @@ fish: deps ## Install Fish shell + plugins
 	${call install,fish}
 	if [ "$$SHELL" != "/usr/bin/fish" ]; then chsh -s /usr/bin/fish; fi
 	if [ ! -d "$$HOME/.local/share/omf/" ]; then curl -L https://get.oh-my.fish | fish; fi
-	echo "omf install bobthefish" | fish
+	echo "omf install clearance" | fish
 	echo "set -g theme_display_date no" | fish
 	${call copy,fish}
 
