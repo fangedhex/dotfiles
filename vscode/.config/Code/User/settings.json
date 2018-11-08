@@ -7,7 +7,7 @@
     "extensions.ignoreRecommendations": true,
     "explorer.autoReveal": false,
     "workbench.iconTheme": "material-icon-theme",
-    "workbench.colorTheme": "Solarized Dark",
+    "workbench.colorTheme": "Dracula",
     "editor.fontFamily": "Fira Code",
     "editor.fontSize": 14,
     "editor.fontLigatures": true,
@@ -20,5 +20,9 @@
     "todo-tree.customHighlight": {
         "TODO": {},
         "FIXME": {}
-    }
+    },
+    "files.associations": {
+        "*.toml": "ini"
+    },
+    "vetur.validation.template": false
 }
