@@ -24,5 +24,8 @@
     "files.associations": {
         "*.toml": "ini"
     },
-    "vetur.validation.template": false
+    "vetur.validation.template": false,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": false
 }

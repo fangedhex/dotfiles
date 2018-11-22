@@ -252,6 +252,8 @@ exec --no-startup-id xinput --set-prop 8 301 -1 0
 # Assigning Window
 assign [class="Code"] $wsCode
 for_window [class="Code"] focus
+assign [class="jetbrains-phpstorm"] $wsCode
+for_window [class="jetbrains-phpstorm"] focus
 assign [class="kitty"] $wsTerm
 assign [class="XTerm"] $wsTerm
 assign [class="Firefox"] $wsWeb
