@@ -27,6 +27,7 @@ monitor = DVI-I-1
 [bar/side]
 inherit        = bar/base
 monitor        = DVI-D-0
+modules-left = i3
 modules-center =
 modules-right  =
 tray-position  =
@@ -35,10 +36,10 @@ tray-position  =
 ;monitor       = ${env:MONITOR:HDMI-1}
 monitor-strict = true
 width          = 100%
-height         = 35
+height         = 26
 offset-x       = 0
 offset-y       = 0
-radius         = 0.0
+radius         = 0
 fixed-center   = true
 top            = true
 
@@ -51,25 +52,28 @@ underline-color = ${colors.foreground}
 line-size  = 0
 line-color = #f00
 
-border-size  = 0
-border-color = ${colors.foreground}
+border-size  = 5
+border-color = #00000000
 
-padding-left  = 1
-padding-right = 1
+padding-left  = 3
+padding-right = 3
 
 module-margin-left  = 1
 module-margin-right = 1
 
-font-0 = Fira Code:style=Bold:size=12;2
-font-1 = Font Awesome 5 Free:style=Solid:size=10;2
-font-2 = Font Awesome 5 Brands:style=Regular:size=11;2
+font-0 = Roboto:style=Bold:pixelsize=12;2
+font-1 = Font Awesome 5 Free:style=Solid:pixelsize=11;1.5
+font-2 = Font Awesome 5 Brands:style=Regular:pixelsize=12;1.5
+font-3 = DSEG7 Modern:style=Bold:pixelsize=11;3
 
-modules-left   = i3
-modules-center = date
-modules-right  = volume eth powermenu
+modules-left   = powermenu i3 date
+modules-center = 
+modules-right  = cpu ram battery updates filesystem eth
 
-tray-position     = right
-tray-padding      = 2
+separator = |
+
+tray-position     = none
+;tray-padding      = 2
 ;tray-transparent = true
 ;tray-background  = #0063ff
 
@@ -111,7 +115,7 @@ label-focused-background = ${colors.focus-background}
 label-focused-foreground = ${colors.focus-foreground}
 label-focused-underline  = ${colors.focus-foreground}
 ;label-focused-underline = ${module/bspwm.label-focused-underline}
-label-focused-padding    = 1
+label-focused-padding    = 2
 
 ;unfocused              = Inactive workspace on any monitor
 label-unfocused         = ${self.label-focused}
@@ -137,31 +141,65 @@ ws-icon-4		= "trello;"
 ws-icon-5		= "discord;"
 ws-icon-default = ""
 
+[module/cpu]
+type = internal/cpu
+label =  %percentage%%
+label-underline = #FF5555
+
+[module/ram]
+type = internal/memory
+label =  %percentage_used%%
+label-underline = #50FA7B
+
+[module/battery]
+type                          = internal/battery
+battery                       = BAT1
+adapter                       = ACAD
+full-at                       = 100
+format-underline = #e74c3c
+
+format-charging               = <animation-charging> <label-charging>
+format-charging-underline    = ${self.format-underline}
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-underline = ${self.format-underline}
+label-full            =  %percentage%%
+label-full-underline = ${self.format-underline}
+
+animation-charging-0          = "[] "
+animation-charging-1          = "[] "
+animation-charging-2          = "[] "
+animation-charging-3          = "[] "
+animation-charging-4          = "[] "
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+[module/updates]
+type = custom/script
+label-underline = #993d0f
+exec = ~/.config/polybar/scripts/updates.sh
+interval = 90
+
+[module/network]
+type = internal/network
+format-connected-underline = #55aa55
+label-connected = %upspeed%  %downspeed%
+
 [module/eth]
-type      = internal/network
+inherit = module/network
 interface = enp5s0
-interval  = 3.0
-
-format-connected-underline         = #55aa55
-format-connected-prefix-foreground = ${colors.foreground}
-label-connected =  %local_ip%
-label-disconnected = 
-
-;format-disconnected           =
-;format-connected-prefix       =
-;format-disconnected           = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected            = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground}
 
 [module/date]
 type     = internal/date
 interval = 5
 
-date     = "%A %d/%m/%Y"
-date-alt =
+date     = 
+date-alt = " %A %d/%m/%Y"
 
-time     = "%H:%M"
+time     = " %{T4}%H:%M%{T-}"
 time-alt =
 
 format-prefix            = 
@@ -194,9 +232,9 @@ type                       = custom/menu
 label-active-font          = 1
 label-open                 = 
 label-open-foreground      = ${colors.primary}
-label-close                = 
+label-close                =  Cancel
 label-close-foreground     = ${colors.power}
-label-separator            = $
+label-separator            = "   "
 label-separator-foreground = ${colors.background}
 
 format         = <menu> <label-toggle>
@@ -204,12 +242,19 @@ format-padding = 0
 format-margin  = 0
 format-spacing = 1
 
-menu-0-0            = 
+expand-right = true
+menu-0-0            =  Reboot
 menu-0-0-foreground = ${colors.foreground}
 menu-0-0-exec       = reboot
-menu-0-1            = 
+menu-0-1            =  Shutdown
 menu-0-1-foreground = ${colors.foreground}
 menu-0-1-exec       = poweroff
+
+[module/filesystem]
+type = internal/fs
+mount-0 = /
+label-mounted-underline = #1245A8
+label-mounted =  %percentage_used%%
 
 [settings]
 screenchange-reload     = true
