@@ -197,13 +197,13 @@ interface = enp5s0
 type     = internal/date
 interval = 5
 
-date     = "  %{T4}%d / %m / %Y%{T-}"
+date     = "%{T4}%d / %m / %Y%{T-}"
 date-alt =
 
 time     = "%{T4}%H : %M%{T-}"
 time-alt =
 
-format-prefix            = 
+format-prefix            = " "
 format-prefix-foreground = ${colors.foreground}
 format-underline         =
 

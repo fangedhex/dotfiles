@@ -1,9 +1,9 @@
 configuration {
 	modi: "drun,window,run";
 /*	width: 50;*/
-/*	lines: 15;*/
-/*	columns: 1;*/
-	font: "Fira Code 16";
+	lines: 10;
+	columns: 2;
+	font: "Roboto 16";
 /*	bw: 1;*/
 /*	location: 0;*/
 	padding: 200;
@@ -33,13 +33,13 @@ configuration {
 /*	matching: "normal";*/
 /*	tokenize: true;*/
 	m: "primary";
-	line-margin: 10;
+/*	line-margin: 0;*/
 /*	line-padding: 1;*/
 /*	filter: ;*/
 	separator-style: "solid";
 	hide-scrollbar: false;
 	fullscreen: false;
-/*	fake-transparency: false;*/
+	fake-transparency: true;
 /*	dpi: -1;*/
 /*	threads: 0;*/
 /*	scrollbar-width: 8;*/
