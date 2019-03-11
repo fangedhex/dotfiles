@@ -36,7 +36,7 @@ tray-position  =
 ;monitor       = ${env:MONITOR:HDMI-1}
 monitor-strict = true
 width          = 100%
-height         = 26
+height         = 32
 offset-x       = 0
 offset-y       = 0
 radius         = 0
@@ -50,10 +50,10 @@ underline-size  = 2
 underline-color = ${colors.foreground}
 
 line-size  = 0
-line-color = #f00
+line-color = ${colors.foreground}
 
-border-size  = 5
-border-color = #00000000
+border-size  = 0
+border-color = ${colors.foreground}
 
 padding-left  = 3
 padding-right = 3
@@ -111,9 +111,10 @@ label-mode-padding     = 0
 
 ;focused                 = Active workspace on focused monitor
 label-focused            = %index% %icon%
-label-focused-background = ${colors.focus-background}
+;label-focused-background = ${colors.focus-background}
+label-focused-background = 
 label-focused-foreground = ${colors.focus-foreground}
-label-focused-underline  = ${colors.focus-foreground}
+label-focused-underline  = ${colors.urgent}
 ;label-focused-underline = ${module/bspwm.label-focused-underline}
 label-focused-padding    = 2
 
@@ -196,17 +197,17 @@ interface = enp5s0
 type     = internal/date
 interval = 5
 
-date     = 
-date-alt = " %A %d/%m/%Y"
+date     = "  %{T4}%d / %m / %Y%{T-}"
+date-alt =
 
-time     = " %{T4}%H:%M%{T-}"
+time     = "%{T4}%H : %M%{T-}"
 time-alt =
 
 format-prefix            = 
 format-prefix-foreground = ${colors.foreground}
 format-underline         =
 
-label = %date% %time%
+label = %date%    %time%
 
 [module/volume]
 type = internal/volume
@@ -237,7 +238,7 @@ label-close-foreground     = ${colors.power}
 label-separator            = "   "
 label-separator-foreground = ${colors.background}
 
-format         = <menu> <label-toggle>
+format         = <label-toggle><menu>
 format-padding = 0
 format-margin  = 0
 format-spacing = 1
