@@ -29,6 +29,7 @@ set $primMonitor "DVI-I-1"
 set $sideMonitor "DVI-D-0"
 
 # Temp fix for moving monitors
+exec --no-startup-id xrandr --output $primMonitor --primary
 exec --no-startup-id xrandr --output $sideMonitor --left-of $primMonitor
 
 # ------------- WORKSPACES -------------------
@@ -250,19 +251,13 @@ exec --no-startup-id xinput --set-prop 8 298 -1
 exec --no-startup-id xinput --set-prop 8 301 -1 0
 
 # Assigning Window
-assign [class="code-oss"] $wsCode
-for_window [class="code-oss"] focus
+assign [class="VSCodium"] $wsCode
 assign [class="jetbrains-*"] $wsCode
-for_window [class="jetbrains-*"] focus
 assign [class="kitty"] $wsTerm
 assign [class="XTerm"] $wsTerm
-assign [class="Firefox"] $wsWeb
-for_window [class="Firefox"] focus
+assign [class="firefox"] $wsWeb
 assign [class="Brave-browser"] $wsWeb
-for_window [class="Brave-browser"] focus
 assign [class="Spotify"] $wsSpotify
 for_window [class="Spotify"] move to workspace $wsSpotify
 assign [class="Trello"] $wsTrello
-for_window [class="Trello"] focus
 assign [class="discord"] $wsDiscord
-for_window [class="discord"] focus

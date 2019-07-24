@@ -9,7 +9,7 @@ define copy
 endef
 
 # Avoid that make thinks we are calling the sub directories
-.PHONY: help deps i3 compton polybar termite rofi fish gtk_config icons_theme cursor_theme dev
+.PHONY: help deps i3 compton polybar kitty rofi fish icons_theme cursor_theme dev
 
 # Default to an HELP/Menu command
 help: ## Show this help
@@ -64,6 +64,7 @@ fonts: deps
 
 dev: ## Install dev softwares
 	${call install,dev}
+	${call copy,vscode}
 
 # Silent commands
 .SILENT:
