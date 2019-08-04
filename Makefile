@@ -9,7 +9,7 @@ define copy
 endef
 
 # Avoid that make thinks we are calling the sub directories
-.PHONY: help deps i3 compton polybar kitty rofi fish icons_theme cursor_theme dev
+.PHONY: help deps i3 compton polybar kitty rofi fish icons_theme cursor_theme dev zsh
 
 # Default to an HELP/Menu command
 help: ## Show this help
@@ -51,6 +51,19 @@ fish: deps ## Install Fish shell + plugins
 	echo "omf install clearance" | fish
 	echo "set -g theme_display_date no" | fish
 	${call copy,fish}
+
+zsh: deps ## Install Zsh shell + config
+	${call install,zsh}
+	echo "Switching shell for current user"
+	if [ "$$SHELL" != "/usr/bin/zsh" ]; then chsh -s /usr/bin/zsh; fi
+	echo "Downloading Oh My Zsh install script"
+	curl -fsSLO https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
+	sh install.sh --unattended
+	echo "Installing required plugins for Oh My Zsh"
+	git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
+	git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+	${call copy,zsh}
 
 icons_theme: ## Install the icons theme
 	${call install,icons_theme}

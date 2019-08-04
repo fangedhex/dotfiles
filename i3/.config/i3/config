@@ -29,8 +29,8 @@ set $primMonitor "DVI-I-1"
 set $sideMonitor "DVI-D-0"
 
 # Temp fix for moving monitors
-exec --no-startup-id xrandr --output $primMonitor --primary
-exec --no-startup-id xrandr --output $sideMonitor --left-of $primMonitor
+#exec --no-startup-id xrandr --output $primMonitor --primary
+#exec --no-startup-id xrandr --output $sideMonitor --left-of $primMonitor
 
 # ------------- WORKSPACES -------------------
 set $wsCode "1:code"
