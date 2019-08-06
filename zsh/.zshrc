@@ -68,7 +68,16 @@ ZSH_THEME="avit"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(dotenv title zsh-completions zsh-autosuggestions zsh-syntax-highlighting git)
+plugins=(
+    dotenv 
+    title 
+    zsh-completions 
+    zsh-autosuggestions 
+    zsh-syntax-highlighting 
+    git 
+    git-extras 
+    git-flow
+)
 
 source $ZSH/oh-my-zsh.sh
 
