@@ -107,7 +107,11 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
+alias update_system="yay"
+alias clean_system="yay -Rcs \$(yay -Qtdq)"
+alias ssh='TERM=xterm ssh'
 
 # Plugins configuration
+PROMPT_TITLE='Terminal - $USER@$HOST:$PWD'
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 ZSH_AUTOSUGGEST_USE_ASYNC=1
