@@ -20,7 +20,7 @@ deps: ## Install dependencies program that the makefile use
 	echo "Checking/Installing dependencies ..."
 	${call install,deps}
 
-i3: deps compton polybar termite rofi ## Install & configure i3wm + addons
+i3: deps compton polybar kitty rofi ## Install & configure i3wm + addons
 	echo "Checking/Installing i3wm ..."
 	${call install,i3}
 	${call copy,i3}
@@ -60,10 +60,11 @@ zsh: deps ## Install Zsh shell + config
 	curl -fsSLO https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
 	sh install.sh --unattended
 	echo "Installing required plugins for Oh My Zsh"
-	git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
-	git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+	git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions
+	git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 	git clone https://github.com/zpm-zsh/title ~/.oh-my-zsh/custom/plugins/title
+	curl -L -o ~/.oh-my-zsh/custom/themes/materialshell.zsh-theme https://raw.githubusercontent.com/carloscuesta/materialshell/master/materialshell.zsh
 	${call copy,zsh}
 
 icons_theme: ## Install the icons theme

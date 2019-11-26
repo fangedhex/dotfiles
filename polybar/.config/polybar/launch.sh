@@ -8,4 +8,5 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 # Launch polybar instances
 polybar -r primary &
-polybar -r side &
+polybar -r left &
+polybar -r right &

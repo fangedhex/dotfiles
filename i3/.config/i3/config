@@ -25,12 +25,9 @@ focus_follows_mouse no
 mouse_warping none
 
 # ------------- MONITORS ---------------------
-set $primMonitor "DVI-I-1"
-set $sideMonitor "DVI-D-0"
-
-# Temp fix for moving monitors
-#exec --no-startup-id xrandr --output $primMonitor --primary
-#exec --no-startup-id xrandr --output $sideMonitor --left-of $primMonitor
+set $primMonitor "DisplayPort-0"
+set $leftMonitor "DisplayPort-1"
+set $rightMonitor "DisplayPort-2"
 
 # ------------- WORKSPACES -------------------
 set $wsCode "1:code"
@@ -41,11 +38,11 @@ set $wsTrello "9:trello"
 set $wsDiscord "10:discord"
 
 workspace $wsCode output $primMonitor
-workspace $wsTerm output $sideMonitor
-workspace $wsWeb output $sideMonitor
-workspace $wsSpotify output $sideMonitor
-workspace $wsTrello output $sideMonitor
-workspace $wsDiscord output $sideMonitor
+workspace $wsTerm output $leftMonitor
+workspace $wsWeb output $rightMonitor
+workspace $wsSpotify output $rightMonitor
+workspace $wsTrello output $rightMonitor
+workspace $wsDiscord output $leftMonitor
 
 # Basic color configuration using the Base16 variables for windows and borders.
 # Property Name         Border    BG        Text    Indicator           Child Border

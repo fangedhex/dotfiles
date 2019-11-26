@@ -26,7 +26,7 @@
     ],
     "projectManager.any.maxDepthRecursion": 1,
     "cmake.configureOnOpen": true,
-    "workbench.tree.indent": 4,
+    "workbench.tree.indent": 20,
     "terminal.explorerKind": "external",
     "terminal.external.linuxExec": "konsole",
     "C_Cpp.updateChannel": "Insiders",
@@ -36,5 +36,6 @@
     },
     "files.exclude": {
         "**/*.meta": true
-    }
+    },
+    "workbench.colorTheme": "Material Theme Darker High Contrast"
 }

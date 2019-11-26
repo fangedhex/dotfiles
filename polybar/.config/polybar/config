@@ -22,15 +22,21 @@ power = ${colors.urgent}
 
 [bar/primary]
 inherit = bar/base
-monitor = DVI-I-1
+monitor = DisplayPort-0
 
-[bar/side]
+[bar/left]
 inherit        = bar/base
-monitor        = DVI-D-0
-modules-left = i3
+monitor        = DisplayPort-1
+modules-left   = i3
 modules-center =
 modules-right  =
-tray-position  =
+
+[bar/right]
+inherit        = bar/base
+monitor        = DisplayPort-2
+modules-left   = i3
+modules-center =
+modules-right  =
 
 [bar/base]
 ;monitor       = ${env:MONITOR:HDMI-1}
