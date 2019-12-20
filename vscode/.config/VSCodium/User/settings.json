@@ -37,5 +37,7 @@
     "files.exclude": {
         "**/*.meta": true
     },
-    "workbench.colorTheme": "Material Theme Darker High Contrast"
+    "workbench.colorTheme": "Material Theme Darker High Contrast",
+    "telemetry.enableTelemetry": false,
+    "git.detectSubmodules": false
 }

@@ -63,6 +63,8 @@ ZSH_THEME="materialshell"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+VSCODE=vscodium
+
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -77,6 +79,7 @@ plugins=(
     git 
     git-extras 
     git-flow
+    vscode
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -115,3 +118,4 @@ alias ssh='TERM=xterm ssh'
 PROMPT_TITLE='Terminal - $USER@$HOST:$PWD'
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 ZSH_AUTOSUGGEST_USE_ASYNC=1
+source /usr/share/nvm/init-nvm.sh
