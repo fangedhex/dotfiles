@@ -1,0 +1,32 @@
+export ZSH=$HOME/.oh-my-zsh
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+ZSH_THEME="spaceship"
+
+DISABLE_AUTO_UPDATE="true"
+
+# Auto Suggestions configuration
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
+plugins=(
+  zsh-completions
+  zsh-autosuggestions
+  {{ ansible_distribution | lower }}
+  dotenv
+  git
+  git-extras
+  git-flow-avh
+  vscode
+  zsh-syntax-highlighting
+  per-directory-history
+)
+autoload -U compinit && compinit
+
+EDITOR='vim'
+
+# SpaceShip customization
+SPACESHIP_KUBECTL_SHOW=true
+SPACESHIP_KUBECTL_SYMBOL="☸️ "
+
+# Load Oh-My-Zsh
+source $ZSH/oh-my-zsh.sh

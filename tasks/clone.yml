@@ -1,0 +1,10 @@
+---
+- name: Check if {{ path }} exists
+  stat:
+    path: "{{ path }}"
+  register: dest
+- name: Cloning {{ url }} to {{ path }}
+  git:
+    repo="{{ url }}"
+    dest="{{ path }}"
+  when: not dest.stat.exists

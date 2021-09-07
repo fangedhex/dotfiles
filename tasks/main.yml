@@ -1,0 +1,45 @@
+---
+- name: Install ZSH
+  become: yes
+  ansible.builtin.package:
+    name: zsh
+    state: latest
+- name: Set shell
+  become: yes
+  ansible.builtin.user:
+    name: "{{ ansible_user_id }}"
+    shell: /usr/bin/zsh
+- name: Install Oh-My-Zsh
+  ansible.builtin.include_tasks:
+    file: clone.yml
+    apply:
+      vars:
+        url: https://github.com/robbyrussell/oh-my-zsh
+        path: ~/.oh-my-zsh
+- name: Install zsh plugins
+  ansible.builtin.include_tasks:
+    file: clone.yml
+    apply:
+      vars:
+        url: https://github.com/zsh-users/{{ item }}
+        path: ~/.oh-my-zsh/custom/plugins/{{ item }}
+  with_items:
+    - zsh-completions
+    - zsh-autosuggestions
+    - zsh-syntax-highlighting
+- name: Install Spaceship
+  ansible.builtin.include_tasks:
+    file: clone.yml
+    apply:
+      vars:
+        url: https://github.com/spaceship-prompt/spaceship-prompt
+        path: ~/.oh-my-zsh/custom/themes/spaceship-prompt
+- name: Symlink Spaceship
+  ansible.builtin.file:
+    src: ~/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme
+    dest: ~/.oh-my-zsh/custom/themes/spaceship.zsh-theme
+    state: link
+- name: Copy zshrc
+  ansible.builtin.template:
+    src: zshrc
+    dest: ~/.zshrc
