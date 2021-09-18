@@ -1,0 +1,8 @@
+grub_config_path: /etc/default/grub
+
+grub_args:
+  - amd_iommu=on
+
+iommu_ids:
+  video: "00:00.0"
+  audio: "00:00.1"

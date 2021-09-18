@@ -1,10 +1,11 @@
 ---
 - name: Check if {{ path }} exists
-  stat:
+  ansible.builtin.stat:
     path: "{{ path }}"
   register: dest
 - name: Cloning {{ url }} to {{ path }}
-  git:
-    repo="{{ url }}"
-    dest="{{ path }}"
+  ansible.builtin.git:
+    repo: "{{ url }}"
+    dest: "{{ path }}"
+    version: "HEAD"
   when: not dest.stat.exists

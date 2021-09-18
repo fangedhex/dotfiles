@@ -1,0 +1,13 @@
+---
+- name: apply grub config
+  become: yes
+  shell: grub-mkconfig -o /boot/grub/grub.cfg
+- name: restart libvirt
+  become: yes
+  ansible.builtin.systemd:
+    name: "{{ item }}"
+    enabled: yes
+    state: started
+  with_items:
+    - libvirtd.service
+    - virtlogd.socket

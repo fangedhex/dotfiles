@@ -1,8 +1,10 @@
 ---
-- name: Install ZSH
+- name: install zsh and git
   become: yes
   ansible.builtin.package:
-    name: zsh
+    name:
+      - zsh
+      - git
     state: latest
 - name: Set shell
   become: yes

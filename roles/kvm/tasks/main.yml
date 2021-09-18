@@ -1,0 +1,50 @@
+- name: current machine
+  debug:
+    msg: "{{ ansible_distribution }} of {{ ansible_os_family }}"
+- name: load vars file depending on the os
+  include_vars: "{{ lookup('first_found', params) }}"
+  vars:
+    params:
+      files:
+        - '{{ansible_distribution}}.yml'
+        - '{{ansible_os_family}}.yml'
+      paths:
+        - 'vars'
+- name: check if grub default config exists
+  ansible.builtin.stat:
+    path: "{{ grub_config_path }}"
+  register: grub_default_config
+- name: update grub default config
+  lineinfile:
+    dest: "{{ grub_config_path }}"
+    line: GRUB_CMDLINE_LINUX="{{ grub_args | join(' ') }}"
+    regexp: '^GRUB_CMDLINE_LINUX="'
+  when: grub_default_config.stat.exists
+  notify:
+    - apply grub config
+- name: install kvm/libvirt related packages
+  become: yes
+  ansible.builtin.package:
+    name: "{{ kvm_packages }}"
+    state: latest
+  notify:
+    - restart libvirt
+- name: enable and start networking
+  become: yes
+  ansible.builtin.shell: "{{ item }}"
+  with_items:
+    - "virsh net-autostart default"
+    - "virsh net-start default"
+- name: create our libvirt hooks directory
+  become: yes
+  ansible.builtin.file:
+    path: /etc/libvirt/hooks
+    state: directory
+    mode: u=rwx,g=rx,o=rx
+- name: Download foo.conf
+  get_url:
+    url: https://raw.githubusercontent.com/PassthroughPOST/VFIO-Tools/master/libvirt_hooks/qemu
+    dest: /etc/libvirt/hooks/qemu
+    mode: u=rwx,g=rx,o=rx
+  notify:
+    - restart libvirt

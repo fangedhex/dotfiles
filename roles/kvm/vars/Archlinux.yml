@@ -1,0 +1,5 @@
+kvm_packages:
+  - qemu
+  - libvirt
+  - edk2-ovmf
+  - virt-manager
