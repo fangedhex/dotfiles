@@ -1,0 +1,10 @@
+- name: install kitty and required font
+  community.general.pacman:
+    name:
+      - kitty
+      - ttf-fira-code
+    state: present
+- name: copy config file
+  ansible.builtin.copy:
+    src: kitty.conf
+    dest: ~/.config/kitty/

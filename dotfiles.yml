@@ -1,4 +1,5 @@
 ---
 - hosts: localhost
   roles:
+    - i3wm
     - zsh

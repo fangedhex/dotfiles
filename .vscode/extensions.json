@@ -1,6 +1,8 @@
 {
   "recommendations": [
     "editorconfig.editorconfig",
-    "redhat.ansible"
+    "redhat.ansible",
+    "dlasagno.rasi",
+    "skyapps.fish-vscode"
   ]
 }

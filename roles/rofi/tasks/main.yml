@@ -1,0 +1,11 @@
+- name: Install polybar
+  community.general.pacman:
+    name: rofi
+    state: present
+- name: copy files
+  ansible.builtin.copy:
+    src: "{{ item }}"
+    dest: ~/.config/rofi/
+    mode: u=rw,g=r,o=r
+  with_fileglob:
+    - "{{ role_path }}/files/**/*"

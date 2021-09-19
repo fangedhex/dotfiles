@@ -1,0 +1,9 @@
+- name: install compton
+  kewlfft.aur.aur:
+    name:
+      - compton-tryone-git
+    state: present
+- name: copy config file
+  ansible.builtin.copy:
+    src: compton.conf
+    dest: ~/.config/

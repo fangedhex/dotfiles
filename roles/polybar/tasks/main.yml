@@ -1,0 +1,11 @@
+- name: install polybar
+  kewlfft.aur.aur:
+    name: polybar
+    state: present
+- name: copy files
+  ansible.builtin.copy:
+    src: "{{ item }}"
+    dest: ~/.config/polybar/
+    mode: u=rwx,g=rx,o=rx
+  with_fileglob:
+    - "{{ role_path }}/files/**/*"

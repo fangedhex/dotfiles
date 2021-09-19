@@ -1,0 +1,13 @@
+- name: install fish shell
+  community.general.pacman:
+    name: fish
+    state: present
+- name: copy config file
+  ansible.builtin.copy:
+    src: config.fish
+    dest: ~/.config/fish/
+- name: set shell to fish
+  become: yes
+  ansible.builtin.user:
+    name: "{{ ansible_user_id }}"
+    shell: /usr/bin/fish
