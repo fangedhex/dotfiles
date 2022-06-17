@@ -1,0 +1,29 @@
+---
+- name: Install curl
+  become: true
+  ansible.builtin.apt:
+    name: curl
+    state: present
+- name: Install Node Version Manager
+  ansible.builtin.shell: >
+    set -o pipefail && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+  args:
+    executable: /bin/bash
+    chdir: "$HOME"
+    creates: "$HOME/.nvm/nvm.sh"
+- name: Setup .profile
+  ansible.builtin.lineinfile:
+    path: ~/.profile
+    mode: 0644
+    line: source ~/.nvm/nvm.sh
+    create: true
+- name: Install node
+  ansible.builtin.shell: >
+    bash -lc "nvm install {{ node_version }}"
+    bash -lc "nvm use {{ node_version }}"
+  args:
+    executable: /bin/bash
+    chdir: "$HOME"
+    creates: "$HOME/.nvm/versions/node/v{{ node_version }}"
+  vars:
+    node_version: "16.15.1"
