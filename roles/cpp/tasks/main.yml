@@ -1,0 +1,24 @@
+---
+- name: Install C/C++ compiler
+  become: true
+  ansible.builtin.apt:
+    name:
+      - build-essential
+    state: present
+- name: Install python & pip
+  become: true
+  ansible.builtin.apt:
+    name:
+      - python3
+      - python3-pip
+    state: present
+- name: Install conan
+  become: true
+  ansible.builtin.pip:
+    name: conan
+    state: present
+- name: Copy conan default profile
+  ansible.builtin.copy:
+    src: "{{ role_path }}/files/conan_profile.ini"
+    dest: "$HOME/.conan/profiles/default"
+    mode: 0644
