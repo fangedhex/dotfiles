@@ -1,0 +1,5 @@
+plugins+=(
+  nvm
+  node
+  npm
+)

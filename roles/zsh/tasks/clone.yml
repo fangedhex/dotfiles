@@ -7,5 +7,5 @@
   ansible.builtin.git:
     repo: "{{ url }}"
     dest: "{{ path }}"
-    version: "HEAD"
+    version: "{{ version }}"
   when: not dest.stat.exists

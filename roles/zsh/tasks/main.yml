@@ -1,13 +1,13 @@
 ---
-- name: install zsh and git
-  become: yes
+- name: Install zsh and git
+  become: true
   ansible.builtin.package:
     name:
       - zsh
       - git
-    state: latest
+    state: present
 - name: Set shell
-  become: yes
+  become: true
   ansible.builtin.user:
     name: "{{ ansible_user_id }}"
     shell: /usr/bin/zsh
@@ -17,14 +17,16 @@
     apply:
       vars:
         url: https://github.com/robbyrussell/oh-my-zsh
-        path: ~/.oh-my-zsh
+        path: $HOME/.oh-my-zsh
+        version: "HEAD"
 - name: Install zsh plugins
   ansible.builtin.include_tasks:
     file: clone.yml
     apply:
       vars:
         url: https://github.com/zsh-users/{{ item }}
-        path: ~/.oh-my-zsh/custom/plugins/{{ item }}
+        path: $HOME/.oh-my-zsh/custom/plugins/{{ item }}
+        version: "HEAD"
   with_items:
     - zsh-completions
     - zsh-autosuggestions
@@ -35,13 +37,20 @@
     apply:
       vars:
         url: https://github.com/spaceship-prompt/spaceship-prompt
-        path: ~/.oh-my-zsh/custom/themes/spaceship-prompt
+        path: $HOME/.oh-my-zsh/custom/themes/spaceship-prompt
+        version: "HEAD"
 - name: Symlink Spaceship
   ansible.builtin.file:
-    src: ~/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme
-    dest: ~/.oh-my-zsh/custom/themes/spaceship.zsh-theme
+    src: $HOME/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme
+    dest: $HOME/.oh-my-zsh/custom/themes/spaceship.zsh-theme
     state: link
 - name: Copy zshrc
   ansible.builtin.template:
     src: zshrc
-    dest: ~/.zshrc
+    dest: $HOME/.zshrc
+    mode: 0644
+- name: Create .zshrc.d directory
+  ansible.builtin.file:
+    path: $HOME/.zshrc.d
+    state: directory
+    mode: 0755

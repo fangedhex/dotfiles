@@ -11,19 +11,25 @@
     executable: /bin/bash
     chdir: "$HOME"
     creates: "$HOME/.nvm/nvm.sh"
-- name: Setup .profile
-  ansible.builtin.lineinfile:
-    path: ~/.profile
+- name: Copy zsh nodejs config
+  ansible.builtin.copy:
+    src: "{{ role_path }}/files/nodejs.sh"
+    dest: "$HOME/.zshrc.d/nodejs.sh"
     mode: 0644
-    line: source ~/.nvm/nvm.sh
-    create: true
 - name: Install node
   ansible.builtin.shell: >
-    bash -lc "nvm install {{ node_version }}"
-    bash -lc "nvm use {{ node_version }}"
+    . $HOME/.zshrc
+    nvm install {{ node_version }}
+    nvm use {{ node_version }}
   args:
-    executable: /bin/bash
+    executable: /usr/bin/zsh
     chdir: "$HOME"
     creates: "$HOME/.nvm/versions/node/v{{ node_version }}"
-  vars:
-    node_version: "16.15.1"
+- name: Install pnpm
+  ansible.builtin.shell: >
+    . $HOME/.zshrc
+    npm install -g pnpm
+  args:
+    executable: /usr/bin/zsh
+    chdir: "$HOME"
+    creates: "$HOME/.nvm/versions/node/v{{ node_version }}/bin/pnpm"

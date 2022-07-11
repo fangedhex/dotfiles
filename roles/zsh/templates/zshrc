@@ -28,5 +28,12 @@ EDITOR='vim'
 SPACESHIP_KUBECTL_SHOW=true
 SPACESHIP_KUBECTL_SYMBOL="☸️ "
 
+# Load "addons" files from $HOME/.zshrc.d directory if it exists
+if [ -d $HOME/.zshrc.d ]; then
+  for file in $HOME/.zshrc.d/*.sh; do
+    source $file
+  done
+fi
+
 # Load Oh-My-Zsh
 source $ZSH/oh-my-zsh.sh
